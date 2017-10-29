@@ -6,25 +6,25 @@ $(document).ready(function(){
 
   $(".button").on("click", function(){
     //grabs city and state in search bar
-    let cityState = $("#location-search")[0].value;
-    if (cityState === ""){
-      alert("Please enter valid city and state. ex: Boulder, Colorado");
+    let zipcode = parseInt($("#location-search")[0].value);
+    if (zipcode === ""){
+      alert("Please enter valid zip code. ex: 80027");
     }
+    console.log(zipcode);
 
+    let $xhr = $.getJSON("http://api.wunderground.com/api/04feeaa9a8fd5234/conditions/q=" + zipcode + ".json");
 
-    let $xhr =                      $.getJSON("http://api.wunderground.com/api/04feeaa9a8fd5234/conditions/q/CA/San_Francisco.json");
+    // ("http://api.wunderground.com/api/04feeaa9a8fd5234/conditions/q/80027.json");
     $xhr.done(function(data){
-      console.log("data: ", data);
+      // console.log("data: ", data);
 
       let $degrees = data.current_observation.feelslike_f
       console.log($degrees);
 
-
-
-
-
       //end of done function
     });
+
+
 
   //end of click function
   });
