@@ -4,7 +4,30 @@
 
 
 
+.grid{
+  display: grid;
+  grid-template-columns: auto;
+  /*grid-auto-rows:minmax(100px, auto);*/
+  grid-gap:1em;
+  grid-template-areas:
+  "head"
+  "welcome"
+  "location"
+  "outfits"
+  "foot";
+}
 
+@media screen and (max-width:800px){
+  .grid{
+    grid-template-columns: auto 20%
+    grid-template-areas:
+    "head head head"
+    "welcome welcome"
+    "location location"
+    "outfits outfits"
+    "foot foot foot"
+  }
+}
 
 .head{
   grid-area: head;
