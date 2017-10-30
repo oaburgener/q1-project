@@ -1,0 +1,32 @@
+
+
+
+
+
+
+
+
+.head{
+  grid-area: head;
+  background-color: red;
+}
+
+.welcome_box{
+  grid-area: welcome;
+  background-color: blue;
+}
+
+.location{
+  grid-area: location;
+  background-color: green;
+}
+
+.outfits{
+  grid-area: outfits;
+  background-color: yellow
+}
+
+.foot{
+  grid-area: foot;
+  background-color: orange;
+}
