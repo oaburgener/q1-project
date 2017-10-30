@@ -6,24 +6,27 @@ $(document).ready(function(){
 
   $(".button").on("click", function(){
     //grabs city and state in search bar
-    let zipcode = parseInt($("#location-search")[0].value);
+    let zipcode = $("#location-search")[0].value;
     if (zipcode === ""){
       alert("Please enter valid zip code. ex: 80027");
     }
     console.log(zipcode);
 
-    let $xhr = $.getJSON("http://api.wunderground.com/api/04feeaa9a8fd5234/conditions/q=" + zipcode + ".json");
+    let $xhr = $.getJSON("http://api.wunderground.com/api/04feeaa9a8fd5234/conditions/forecast/q/" + zipcode + ".json");
 
-    // ("http://api.wunderground.com/api/04feeaa9a8fd5234/conditions/q/80027.json");
     $xhr.done(function(data){
-      // console.log("data: ", data);
+      console.log("data: ", data);
 
       let $degrees = data.current_observation.feelslike_f
       console.log($degrees);
-
       //end of done function
     });
 
+    let $xhr_1 = $.getJSON("http://api.shopstyle.com/api/v2/products/359131344?pid=uid7364-40040942-41");
+
+    $xhr_1.done(function(data){
+      console.log("data: " + data)
+    })
 
 
   //end of click function
