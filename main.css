@@ -5,51 +5,41 @@
 
 
 .grid{
-  display: grid;
-  grid-template-columns: auto;
-  /*grid-auto-rows:minmax(100px, auto);*/
+  display:grid;
+  grid-template-columns:1fr 5fr 1fr;
+  grid-auto-rows:minmax(100px, auto);
   grid-gap:1em;
-  grid-template-areas:
-  "head"
-  "welcome"
-  "location"
-  "outfits"
-  "foot";
+  justify-items:stretch;
+  align-items:stretch;
 }
 
-@media screen and (max-width:800px){
-  .grid{
-    grid-template-columns: auto 20%
-    grid-template-areas:
-    "head head head"
-    "welcome welcome"
-    "location location"
-    "outfits outfits"
-    "foot foot foot"
-  }
-}
 
 .head{
-  grid-area: head;
+  /*grid-area: head;*/
+  grid-column: 1/4;
   background-color: red;
 }
 
 .welcome_box{
-  grid-area: welcome;
+  /*grid-area: welcome;*/
+  grid-column: 2/3;
   background-color: blue;
 }
 
 .location{
-  grid-area: location;
+  /*grid-area: location;*/
+  grid-column: 2/3;
   background-color: green;
 }
 
 .outfits{
-  grid-area: outfits;
+  /*grid-area: outfits;*/
+  grid-column: 2/3;
   background-color: yellow
 }
 
 .foot{
-  grid-area: foot;
+  /*grid-area: foot;*/
+  grid-column: 1/4;
   background-color: orange;
 }
