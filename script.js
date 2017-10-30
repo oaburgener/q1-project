@@ -22,7 +22,7 @@ $(document).ready(function(){
       //end of done function
     });
 
-    let $xhr_1 = $.getJSON("http://api.shopstyle.com/api/v2/products/359131344?pid=uid7364-40040942-41");
+    let $xhr_1 = $.getJSON("https://forecast-calls-for-fashion.herokuapp.com/api/v2/products/359131344?pid=uid7364-40040942-41");
 
     $xhr_1.done(function(data){
       console.log("data: " + data)
