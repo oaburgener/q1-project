@@ -22,12 +22,21 @@ $(document).ready(function(){
       //end of done function
     });
 
-    let $xhr_1 = $.getJSON("https://forecast-calls-for-fashion.herokuapp.com/api/v2/products/359131344?pid=uid7364-40040942-41");
+    let $xhr_1 = $.getJSON("http://api.shopstyle.com/api/v2/lists?pid=uid7364-40040942-41&userId=oaburgener");
+
+    // "http://api.shopstyle.com/api/v2/products/359131344?pid=uid7364-40040942-41"
 
     $xhr_1.done(function(data){
-      console.log("data: " + data)
+      console.log("data: ", data);
+      console.log(data.lists[1].favorites[0].product.image.sizes.Best.url)
+      $(".outfits").append(<img src=data.lists[1].favorites[0].product.image.sizes.Best.url/>);
     })
 
+    // let $xhr_2 = $.getJSON("http://api.shopstyle.com/api/v2/products/491295982?pid=uid7364-40040942-41");
+    //
+    // $xhr_2.done(function(data){
+    //   console.log("data: ", data);
+    // })
 
   //end of click function
   });
