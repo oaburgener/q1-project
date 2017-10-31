@@ -13,28 +13,85 @@
   /*grid-area: head;*/
   grid-column: 1/4;
   background-color: red;
+  font-family: 'Playfair Display', serif;
+}
+
+h1{
+  text-align: center;
 }
 
 .welcome_box{
   /*grid-area: welcome;*/
   grid-column: 2/3;
   background-color: blue;
+  font-family: 'Playfair Display', serif;
+
+}
+
+h2{
+  text-align: center;
+}
+
+p{
+  text-align: center;
 }
 
 .location{
   /*grid-area: location;*/
   grid-column: 2/3;
   background-color: green;
+  font-family: 'Playfair Display', serif;
 }
 
+.locationText{
+  font-family: 'Playfair Display', serif;
+}
+
+
+
+.button{
+  background-color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  border-radius: 8px;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+
+
+/*.extras{
+  /*grid-area: foot;*/
+  /*grid-column: 2/3;
+  background-color: purple;
+  font-family: 'Playfair Display', serif;
+/*}*/
+
+.ex{
+  /*grid-area: foot;*/
+  grid-column: 2/3;
+  background-color: purple;
+  font-family: 'Playfair Display', serif;
+}
+
+.outfits-text{
+  /*grid-area: outfits;*/
+  grid-column: 2/3;
+  /*background-color: yellow;*/
+  font-family: 'Playfair Display', serif;
+  /*border: 5px solid black;*/
+}
 .outfits{
   /*grid-area: outfits;*/
   grid-column: 2/3;
-  background-color: yellow
+  /*background-color: yellow;*/
+  font-family: 'Playfair Display', serif;
+  border: 5px solid black;
 }
 
 .foot{
   /*grid-area: foot;*/
   grid-column: 1/4;
   background-color: orange;
+  font-family: 'Playfair Display', serif;
 }
