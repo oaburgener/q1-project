@@ -28,11 +28,18 @@ $(document).ready(function(){
 
     $xhr_1.done(function(data){
       console.log("data: ", data);
-      console.log(data.lists[1].favorites[0].product.image.sizes.Best.url)
-      $(".outfits").append(<img src=data.lists[1].favorites[0].product.image.sizes.Best.url/>);
-    })
+      
+      $(".outfits").append('<img src="' + data.lists[1].favorites[0].product.image.sizes.Large.url + '">');
+      $(".outfits").append('<img src="' + data.lists[1].favorites[1].product.image.sizes.Large.url + '">');
+      $(".outfits").append('<img src="' + data.lists[1].favorites[2].product.image.sizes.Large.url + '">');
+      $(".outfits").append('<img src="' + data.lists[1].favorites[3].product.image.sizes.Large.url + '">');
+      $(".outfits").append('<img src="' + data.lists[1].favorites[4].product.image.sizes.Large.url + '">');
 
-    // let $xhr_2 = $.getJSON("http://api.shopstyle.com/api/v2/products/491295982?pid=uid7364-40040942-41");
+
+      // ('<img src=" + data.lists[1].favorites[0].product.image.sizes.Best.url + "/>');
+    });
+
+    // let $xhr_2 =  $.getJSON("http://api.shopstyle.com/api/v2/products/491295982?pid=uid7364-40040942-41");
     //
     // $xhr_2.done(function(data){
     //   console.log("data: ", data);
