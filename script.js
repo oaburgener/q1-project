@@ -1,3 +1,13 @@
+
+let numberCode = JSON.parse(localStorage.getItem('zipcode'));
+if(localStorage.hasOwnProperty('zipcode')){
+  var message = prompt("Would you like to use your previous zipcode?");
+};
+if(message === "yes"){
+  $("#location-search")[0].value = numberCode;
+};
+
+
 $(document).ready(function(){
 
   $('form').submit(function(event){
@@ -18,7 +28,7 @@ $(document).ready(function(){
     }
     console.log(zipcode);
 
-
+    localStorage.setItem('zipcode', JSON.stringify(zipcode));
 
     let $xhr = $.getJSON("http://api.wunderground.com/api/04feeaa9a8fd5234/conditions/forecast/q/" + zipcode + ".json");
 
@@ -32,8 +42,10 @@ $(document).ready(function(){
       $(".locationText").append("It is currently: " + $degrees + " degrees fahrenheit, in " + $place);
       $(".locationText").append("Today's high will be: " + $high + " degrees fahrenheit");
 
+      $(".outfits-text").append("Based on the weather conditions of " + $place + " we suggest a combination of the articles of clothing below!");
+
       let $feelsLike = data.current_observation.feelslike_f;
-      $(".extras").append("It feels like " + $feelsLike + " degrees outside right now so you might want to wear a...");
+      $(".extras-text").append("It feels like " + $feelsLike + " degrees outside right now so you might want to wear a...");
 
 
       let $xhr_1 = $.getJSON("http://api.shopstyle.com/api/v2/lists?pid=uid7364-40040942-41&userId=oaburgener");
@@ -42,7 +54,7 @@ $(document).ready(function(){
         console.log("data: ", data1);
 
         if($high <= 40){
-          for (var i = 0; i < 5; i++){
+          for (var i = 0; i < 7; i++){
             $(".outfits").append('<img src="' +
             //winter outfits
             data1.lists[2].favorites[i].product.image.sizes.Large.url + '">');
@@ -99,29 +111,6 @@ $(document).ready(function(){
 
   //end of click
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
