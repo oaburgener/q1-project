@@ -79,7 +79,7 @@ $(document).ready(function(){
       $(".extras-text").append("It feels like " + $feelsLike + " degrees outside right now so you might want to wear a...");
 
 
-      let $xhr_1 = $.getJSON("http://api.shopstyle.com/api/v2/lists?pid=uid7364-40040942-41&userId=oaburgener");
+      let $xhr_1 = $.getJSON("http://api.shopstyle.com/api/v2/lists?pid=uid7364-40040942-41&userId=oaburgener&includeProducts=7");
 
       $xhr_1.done(function dataGrab2(data1){
         console.log("data: ", data1);
