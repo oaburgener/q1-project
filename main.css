@@ -1,8 +1,6 @@
 
 body{
   background-image: url("https://images.unsplash.com/photo-1453486030486-0a5ffcd82cd9?auto=format&fit=crop&w=2087&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
-
-
 }
 
 .grid{
@@ -94,8 +92,17 @@ p{
   font-family: 'Playfair Display', serif;
 }
 
+.accessories{
+  grid-column: 2/3;
+  font-family: 'Playfair Display', serif;
+}
+
 .foot{
   grid-column: 1/4;
   background-color: orange;
   font-family: 'Playfair Display', serif;
+}
+img {
+  border: 7px solid black;
+  margin: 10px;
 }
