@@ -1,12 +1,41 @@
-//
-// let numberCode = JSON.parse(localStorage.getItem('zipcode'));
-// if(localStorage.hasOwnProperty('zipcode')){
-//   var message = prompt("Would you like to use your previous zipcode?");
-// };
-// if(message === "yes"){
-//   $("#location-search")[0].value = numberCode;
-// };
 
+let numberCode = JSON.parse(localStorage.getItem('zipcode'));
+if(localStorage.hasOwnProperty('zipcode')){
+  var message = prompt("Would you like to use your previous zipcode?");
+};
+if(message === "yes"){
+  $("#location-search")[0].value = numberCode;
+};
+
+
+function winterFunc(pancake) {
+  let result = [];
+  for(var i = 0; i < 5; i++) {
+    result.push(pancake.lists[3].favorites[i].product.image.sizes.Large.url)
+  }
+  return result;
+}
+function fallFunc(pancake) {
+  let result = [];
+  for(var i = 0; i < 5; i++) {
+    result.push(pancake.lists[6].favorites[i].product.image.sizes.Large.url)
+  }
+  return result;
+}
+function springFunc(pancake) {
+  let result = [];
+  for(var i = 0; i < 5; i++) {
+    result.push(pancake.lists[5].favorites[i].product.image.sizes.Large.url)
+  }
+  return result;
+}
+function summerFunc(pancake) {
+  let result = [];
+  for(var i = 0; i < 5; i++) {
+    result.push(pancake.lists[4].favorites[i].product.image.sizes.Large.url)
+  }
+  return result;
+}
 
 $(document).ready(function(){
 
@@ -32,7 +61,7 @@ $(document).ready(function(){
 
     let $xhr = $.getJSON("http://api.wunderground.com/api/04feeaa9a8fd5234/conditions/forecast/q/" + zipcode + ".json");
 
-    $xhr.done(function(data){
+    $xhr.done(function dataWeather(data){
       console.log("data: ", data);
 
       let $degrees = data.current_observation.temp_f;
@@ -46,37 +75,37 @@ $(document).ready(function(){
       $(".outfits-text").append("Based on the weather conditions of " + $place + " we suggest a combination of the articles of clothing below!");
 
       let $feelsLike = data.current_observation.feelslike_f;
+
       $(".extras-text").append("It feels like " + $feelsLike + " degrees outside right now so you might want to wear a...");
 
 
       let $xhr_1 = $.getJSON("http://api.shopstyle.com/api/v2/lists?pid=uid7364-40040942-41&userId=oaburgener");
 
-      $xhr_1.done(function(data1){
+      $xhr_1.done(function dataGrab2(data1){
         console.log("data: ", data1);
-
+        //winter outfits
         if($high <= 40){
-          for (var i = 0; i < 7; i++){
-            $(".outfits").append('<img src="' +
-            //winter outfits
-            data1.lists[3].favorites[i].product.image.sizes.Large.url + '">');
+          let clothesArray = winterFunc(data1)
+          for (let element of clothesArray){
+            $(".outfits").append('<img src="' + element + '">');
           };
+
         }else if($high >= 40 && $high <= 65){
-          for (var i = 0; i < 5; i++){
-            $(".outfits").append('<img src="' +
-            //fall outfits
-            data1.lists[6].favorites[i].product.image.sizes.Large.url + '">');
+          let clothesArray = fallFunc(data1)
+          for (let element of clothesArray){
+            $(".outfits").append('<img src="' + element + '">');
           };
+
         }else if($high >= 65 && $high <= 80){
-          for (var i = 0; i < 5; i++){
-            $(".outfits").append('<img src="' +
-            //spring outfits
-            data1.lists[5].favorites[i].product.image.sizes.Large.url + '">');
+          let clothesArray = springFunc(data1)
+          for (let element of clothesArray){
+            $(".outfits").append('<img src="' + element + '">');
           };
+
         }else if($high >= 80){
-          for (var i = 0; i < 5; i++){
-            $(".outfits").append('<img src="' +
-            //summer outfits
-            data1.lists[4].favorites[i].product.image.sizes.Large.url + '">');
+          let clothesArray = springFunc(data1)
+          for (let element of clothesArray){
+            $(".outfits").append('<img src="' + element + '">');
           };
         };
 
