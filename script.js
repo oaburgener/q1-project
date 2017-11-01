@@ -1,16 +1,16 @@
-
-let numberCode = JSON.parse(localStorage.getItem('zipcode'));
-if(localStorage.hasOwnProperty('zipcode')){
-  var message = prompt("Would you like to use your previous zipcode?");
-};
-if(message === "yes"){
-  $("#location-search")[0].value = numberCode;
-};
+//
+// let numberCode = JSON.parse(localStorage.getItem('zipcode'));
+// if(localStorage.hasOwnProperty('zipcode')){
+//   var message = prompt("Would you like to use your previous zipcode?");
+// };
+// if(message === "yes"){
+//   $("#location-search")[0].value = numberCode;
+// };
 
 
 function winterFunc(pancake) {
   let result = [];
-  for(var i = 0; i < 5; i++) {
+  for(var i = 0; i < 7; i++) {
     result.push(pancake.lists[3].favorites[i].product.image.sizes.Large.url)
   }
   return result;
@@ -48,6 +48,7 @@ $(document).ready(function(){
     //empties boxes filled with text and pictures
     $(".locationText").empty();
     $(".outfits").empty();
+    $(".outfits-text").empty();
     $(".extras").empty();
 
     //grabs city and state in search bar
@@ -69,8 +70,7 @@ $(document).ready(function(){
       let $high = parseInt(data.forecast.simpleforecast.forecastday[0].high.fahrenheit);
 
 
-      $(".locationText").append("It is currently: " + $degrees + " degrees fahrenheit, in " + $place);
-      $(".locationText").append("Today's high will be: " + $high + " degrees fahrenheit");
+      $(".locationText").append("It is currently " + $degrees + " degrees fahrenheit, in " + $place + "</br></br> Today's high will be: " + $high + " degrees fahrenheit");
 
       $(".outfits-text").append("Based on the weather conditions of " + $place + " we suggest a combination of the articles of clothing below!");
 
