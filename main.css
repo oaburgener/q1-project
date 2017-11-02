@@ -2,10 +2,10 @@
 
 
 body{
-   height: 100%;
-   display: block;
-   position: relative;
-   margin: 0;
+     height: 100%;
+     display: block;
+     position: relative;
+     margin: 0;
 }
 
 body::after{
@@ -133,4 +133,17 @@ p{
 img {
   border: 7px solid black;
   margin: 10px;
+}
+
+.clothing-choice{
+  display: grid;
+  grid-column: 2/3;
+  justify-content: center;
+
+}
+
+select{
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    width: 300px;
 }
