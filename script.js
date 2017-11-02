@@ -3,33 +3,38 @@ let numberCode = JSON.parse(localStorage.getItem('zipcode'));
 if(localStorage.hasOwnProperty('zipcode')){
   $("#location-search")[0].value = numberCode;
 };
+womensList = {
+  winter: 3,
+  fall: 6,
+  spring: 5,
+  summer: 4
+}
 
-
-function winterFunc(pancake) {
+function winterFunc(pancake, listNumber) {
   let result = [];
   for(var i = 0; i < 5; i++) {
-    result.push(pancake.lists[3].favorites[i].product.image.sizes.Large.url)
+    result.push(pancake.lists[listNumber].favorites[i].product.image.sizes.Large.url)
   }
   return result;
 }
 function fallFunc(pancake) {
   let result = [];
   for(var i = 0; i < 5; i++) {
-    result.push(pancake.lists[6].favorites[i].product.image.sizes.Large.url)
+    result.push(pancake.lists[listNumber].favorites[i].product.image.sizes.Large.url)
   }
   return result;
 }
 function springFunc(pancake) {
   let result = [];
   for(var i = 0; i < 5; i++) {
-    result.push(pancake.lists[5].favorites[i].product.image.sizes.Large.url)
+    result.push(pancake.lists[listNumber].favorites[i].product.image.sizes.Large.url)
   }
   return result;
 }
 function summerFunc(pancake) {
   let result = [];
   for(var i = 0; i < 5; i++) {
-    result.push(pancake.lists[4].favorites[i].product.image.sizes.Large.url)
+    result.push(pancake.lists[listNumber].favorites[i].product.image.sizes.Large.url)
   }
   return result;
 }
@@ -79,31 +84,31 @@ $(document).ready(function(){
       $(".extras-text").append("It feels like " + $feelsLike + " degrees outside right now so you might want to wear a...");
 
 
-      let $xhr_1 = $.getJSON("http://api.shopstyle.com/api/v2/lists?pid=uid7364-40040942-41&userId=oaburgener&includeProducts=7");
+      let $xhr_1 = $.getJSON("http://api.shopstyle.com/api/v2/lists?pid=uid7364-40040942-41&userId=oaburgener&includeProducts=1");
 
       $xhr_1.done(function dataGrab2(data1){
         console.log("data: ", data1);
         //winter outfits
         if($high <= 40){
-          let clothesArray = winterFunc(data1)
+          let clothesArray = winterFunc(data1, womensList.winter)
           for (let element of clothesArray){
             $(".outfits").append('<img src="' + element + '">');
           };
 
         }else if($high >= 40 && $high <= 65){
-          let clothesArray = fallFunc(data1)
+          let clothesArray = fallFunc(data1, womensList.fall)
           for (let element of clothesArray){
             $(".outfits").append('<img src="' + element + '">');
           };
 
         }else if($high >= 65 && $high <= 80){
-          let clothesArray = springFunc(data1)
+          let clothesArray = springFunc(data1, womensList.spring)
           for (let element of clothesArray){
             $(".outfits").append('<img src="' + element + '">');
           };
 
         }else if($high >= 80){
-          let clothesArray = summerFunc(data1)
+          let clothesArray = summerFunc(data1, womensList.summer)
           for (let element of clothesArray){
             $(".outfits").append('<img src="' + element + '">');
           };
