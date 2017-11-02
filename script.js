@@ -1,16 +1,13 @@
-//
-// let numberCode = JSON.parse(localStorage.getItem('zipcode'));
-// if(localStorage.hasOwnProperty('zipcode')){
-//   var message = prompt("Would you like to use your previous zipcode?");
-// };
-// if(message === "yes"){
-//   $("#location-search")[0].value = numberCode;
-// };
+
+let numberCode = JSON.parse(localStorage.getItem('zipcode'));
+if(localStorage.hasOwnProperty('zipcode')){
+  $("#location-search")[0].value = numberCode;
+};
 
 
 function winterFunc(pancake) {
   let result = [];
-  for(var i = 0; i < 7; i++) {
+  for(var i = 0; i < 5; i++) {
     result.push(pancake.lists[3].favorites[i].product.image.sizes.Large.url)
   }
   return result;
@@ -50,6 +47,9 @@ $(document).ready(function(){
     $(".outfits").empty();
     $(".outfits-text").empty();
     $(".extras").empty();
+    $(".extras-text").empty();
+    $(".accessories-pics").empty();
+    $(".accessories-text").empty();
 
     //grabs city and state in search bar
     let zipcode = $("#location-search")[0].value;
@@ -70,7 +70,7 @@ $(document).ready(function(){
       let $high = parseInt(data.forecast.simpleforecast.forecastday[0].high.fahrenheit);
 
 
-      $(".locationText").append("It is currently " + $degrees + " degrees fahrenheit, in " + $place + "</br></br> Today's high will be: " + $high + " degrees fahrenheit");
+      $(".locationText").append("It is currently " + $degrees + " degrees fahrenheit, in " + $place + "</br></br> Today's high will be: " + $high + " degrees fahrenheit").css("border", "5px dotted black");
 
       $(".outfits-text").append("Based on the weather conditions of " + $place + " we suggest a combination of the articles of clothing below!");
 
@@ -103,7 +103,7 @@ $(document).ready(function(){
           };
 
         }else if($high >= 80){
-          let clothesArray = springFunc(data1)
+          let clothesArray = summerFunc(data1)
           for (let element of clothesArray){
             $(".outfits").append('<img src="' + element + '">');
           };
@@ -128,8 +128,9 @@ $(document).ready(function(){
             data1.lists[2].favorites[1].product.image.sizes.Large.url + '">');
         };
 
-
         //random accessory
+        $(".accessories-text").append("And just for fun here is an extra acessory...");
+
         function accessoryArray(){
           let picturesArr = [];
           for(var i = 0; i < 5; i++){
