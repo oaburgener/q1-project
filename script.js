@@ -134,10 +134,10 @@ $(document).ready(function(){
               $(".extras").append('<img src="' +
               data1.lists[8].favorites[3].product.image.sizes.Large.url + '">');
               $(".extras").append('<img src="' +
-              data1.lists[8].favorites[0].product.image.sizes.Large.url + '">');
+              data1.lists[8].favorites[1].product.image.sizes.Large.url + '">');
           }else if($feelsLike >= 65){
               $(".extras").append('<img src="' +
-              data1.lists[8].favorites[1].product.image.sizes.Large.url + '">');
+              data1.lists[8].favorites[0].product.image.sizes.Large.url + '">');
           };
 
           //random accessory
