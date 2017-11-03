@@ -1,15 +1,10 @@
 
-
-
 body{
-     height: 100%;
-     width: 100%;
-     display: block;
-     position: relative;
-     margin: 0;
-
-
-
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: relative;
+  margin: 0;
 }
 
 body::after{
@@ -22,7 +17,6 @@ body::after{
   right: 0;
   position: fixed;
   z-index: -1;
-
 }
 
 .grid{
@@ -132,8 +126,6 @@ p{
   font-family: 'Playfair Display', serif;
   font-size: 23px;
 }
-
-
 
 .foot{
   grid-column: 1/4;
