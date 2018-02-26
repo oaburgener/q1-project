@@ -71,7 +71,7 @@ $(document).ready(function(){
 
     localStorage.setItem('zipcode', JSON.stringify(zipcode));
 
-    let $xhr = $.getJSON("http://api.wunderground.com/api/04feeaa9a8fd5234/conditions/forecast/q/" + zipcode + ".json");
+    let $xhr = $.getJSON("http://api.wunderground.com/api/651e9a8dec5a3664/conditions/forecast/q/" + zipcode + ".json");
 
     $xhr.done(function dataWeather(data){
       console.log("data: ", data);
